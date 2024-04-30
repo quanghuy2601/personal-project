@@ -13,6 +13,10 @@ app.use(morgan('common'));
 app.use(cookieParser());
 app.use(express.json());
 
+app.get('/hello', (req, res) => {
+    res.json({ message: 'Hello World!' });
+});
+
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`)
 });
