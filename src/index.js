@@ -17,6 +17,10 @@ app.get('/hello', (req, res) => {
     res.json({ message: 'Hello World!' });
 });
 
+app.get('/get-value', (req, res) => {
+    res.json({ message: process.env.TEST_VALUE });
+});
+
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`)
 });
