@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const path = require('path');
+const authenticationRoute = require('./routes/authenticationRouter');
 
 dotenv.config();
 const app = express();
@@ -16,9 +17,7 @@ app.use(express.json());
 
 app.use('/', express.static(path.join(__dirname + '/views')));
 
-app.get('/hello', (req, res) => {
-    res.json({ message: 'Hello World!' });
-});
+app.use('/api/v1/auth', authenticationRoute);
 
 app.listen(PORT, () => {
     console.log(`http://localhost:${PORT}`)
